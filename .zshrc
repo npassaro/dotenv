@@ -51,13 +51,6 @@ ZSH_THEME="npassaro"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ssh-agent colored-man-pages)
 
-# User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/man:$MANPATH"
-
-export JAVA_HOME="$(/usr/libexec/java_home)"
-
 source $ZSH/oh-my-zsh.sh
 
 # nodenv initialization
@@ -92,6 +85,8 @@ eval "$(rbenv init -)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Java SDK
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 ### Git alias
 alias gbpurge='git branch --merged | grep -Ev "(\*|master|develop|staging)" | xargs -n 1 git branch -d'
@@ -130,27 +125,6 @@ function dmenv() {
     docker-machine env $args
 }
 
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-### Tmuxinator
-export EDITOR="emacsclient -t"
-export ALTERNATE_EDITOR=""
-
-### The silver searcher
-export PATH="/usr/local/opt/the_silver_searcher:$PATH"
-
-
-### Play framework
-export PATH="/Users/npassaro/tools/activator-1.3.6:$PATH"
-
-### Scala binaries
-export SCALA_HOME="/usr/local/share/scala/current"
-export PATH="$SCALA_HOME/bin:$PATH"
-
-### My scripts
-export PATH="$HOME/.bin:$PATH"
 
 ### Android SDK
 export ANDROID_HOME="/usr/local/opt/android-sdk"
