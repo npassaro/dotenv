@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/npassaro/.oh-my-zsh
+if [[ "$os" == 'Darwin' ]]; then
+    export ZSH=/Users/npassaro/.oh-my-zsh
+else
+    export ZSH=/home/npassaro/.oh-my-zsh
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -84,9 +88,6 @@ eval "$(rbenv init -)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Java SDK
-export JAVA_HOME="$(/usr/libexec/java_home)"
 
 ### Git alias
 alias gbpurge='git branch --merged | grep -Ev "(\*|master|develop|staging)" | xargs -n 1 git branch -d'

@@ -1,7 +1,18 @@
-# User configuration
+os=`uname`
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/man:$MANPATH"
+### Export PATH depending on OS due to OS X brew and Linux Brew differences
+if [[ "$os" == 'Darwin' ]]; then
+    export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    export MANPATH="/usr/local/man:$MANPATH"
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+else
+    export PATH="/home/npassaro/.linuxbrew/bin:$PATH"
+    export MANPATH="/home/npassaro/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="/home/npassaro/.linuxbrew/share/info:$INFOPATH"
+    export PERL5LIB="~/.linuxbrew/lib64/perl5/5.24.0:~/.linuxbrew/lib/perl5/5.24.0"
+    export JAVA_HOME="/etc/alternatives/javasdk"
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -24,3 +35,4 @@ export SCALA_HOME="/usr/local/share/scala/current"
 
 ### My scripts
 export PATH="$HOME/.bin:$PATH"
+
