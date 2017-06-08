@@ -18,17 +18,25 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     emoji
+     ansible
+     yaml
+     javascript
+     html
      ruby
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     helm
      ;; auto-completion
      ;; better-defaults
+
      emacs-lisp
      git
-     markdown
+     pandoc
+     (markdown :variables markdown-live-preview-engine 'vmd)
      org
      themes-megapack
      ;; (shell :variables
