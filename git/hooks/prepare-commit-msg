@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+file_path = ARGV[0]
+type = ARGV[1]
+sha1 = ARGV[2]
+
+puts type
+commit_msg = File.read(file_path)
+commit_msg_lines = commit_msg.split(/\n/)
+branch_name = `git rev-parse --abbrev-ref HEAD`
+
+# User Story branch
+ids = /(?:\/(CPP-\d+)\/)?(CPP-\d+)/.match branch_name
+if !ids.nil?
+  story_id = ids[1]
+  issue_id = ids[2]
+
+  puts commit_msg
+  puts "story: #{story_id}"
+  puts "issue: #{issue_id}"
+
+  if commit_msg_lines[0].empty?
+    commit_msg_lines =  [
+      "# #{issue_id}",
+      "#",
+      "#Story: #{story_id}"
+      ] + commit_msg_lines[1..-1]
+  end
+end
+
+File.write(file_path, commit_msg_lines.join("\n"))
