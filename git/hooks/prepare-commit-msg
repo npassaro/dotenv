@@ -9,7 +9,7 @@ commit_msg_lines = commit_msg.split(/\n/)
 branch_name = `git rev-parse --abbrev-ref HEAD`
 
 # User Story branch
-ids = /(?:\/(CPP-\d+)\/)?(CPP-\d+)/.match branch_name
+ids = /(?:(\w+-\d+)\/)?(\w+-\d+)/.match branch_name
 if !ids.nil?
   story_id = ids[1]
   issue_id = ids[2]
