@@ -36,7 +36,7 @@
   # Global ignore file (not shared)
   excludesfile = ~/.gitignore_global
   # Global shared hooks directory
-  hooksPath = ~/.githooks
+  hooksPath = ~/.githooks.d
   #
   # Out of luck: on Windows w/o msysGit? You may have Notepad++…
   # editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
@@ -48,7 +48,7 @@
   # editor = 'c:/Program Files/Sublime Text 3/subl.exe' -w
   #
   # VSCode
-  editor = emacsclient -t -a=
+  editor = emacsclient -t -a=\"\"
   # Don't consider trailing space change as a cause for merge conflicts
   whitespace = -trailing-space
 	fsmonitor = true
@@ -161,3 +161,5 @@
   prereleaseSuffix = -rc
   prereleaseSuffix = .rc
 
+# [init]
+#  templatedir = '/Users/npassaro/projects/dotenv/git'
